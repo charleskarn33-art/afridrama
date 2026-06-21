@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0057FF;
+  --color-secondary: #00B86B;
+  --color-background: #FFFFFF;
+  --color-dark: #111827;
+  --color-border: #E5E7EB;
+  --color-ring: #0057FF;
+  --color-destructive: #EF4444;
+  --color-accent: #F3F4F6;
+  --color-muted: #6B7280;
+  --radius: 0.75rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #0057FF;
+  border-radius: 3px;
+}
+
+/* Ring offset */
+.ring-offset-background {
+  --tw-ring-offset-color: #ffffff;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-from-top {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoom-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoom-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+.animate-in { animation: fade-in 0.2s ease-out; }
+.fade-in-0 { animation: fade-in 0.15s ease-out; }
+.zoom-in-95 { animation: zoom-in 0.15s ease-out; }
+.data-\[state\=open\]\:animate-in[data-state=open] { animation: fade-in 0.2s ease-out; }
+.data-\[state\=closed\]\:animate-out[data-state=closed] { animation: fade-in 0.15s ease-out reverse; }
+.data-\[state\=open\]\:fade-in-0[data-state=open] { animation: fade-in 0.15s ease-out; }
+.data-\[state\=open\]\:zoom-in-95[data-state=open] { animation: zoom-in 0.15s ease-out; }
+.data-\[state\=closed\]\:zoom-out-95[data-state=closed] { animation: zoom-out 0.15s ease-out; }
+.data-\[state\=open\]\:slide-in-from-top-\[48\%\][data-state=open] { animation: slide-in-from-top 0.15s ease-out; }
